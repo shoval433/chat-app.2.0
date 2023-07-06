@@ -10,7 +10,7 @@ services:
     depends_on:
       - app
   app:
-  container_name: app
+    container_name: app
     build: .
     networks:
       - mynet
