@@ -1,6 +1,7 @@
 version: '3'
 services:
   alb:
+    container_name: alb
     build: ./ALB
     ports:
         - "80:80"
@@ -9,6 +10,7 @@ services:
     depends_on:
       - app
   app:
+  container_name: app
     build: .
     networks:
       - mynet
@@ -17,6 +19,7 @@ services:
         condition: service_healthy 
 
   my_data:
+    container_name: my_data
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
